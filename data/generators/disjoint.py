@@ -24,16 +24,13 @@ def generate_data(dataset, n_clients):
     split_subgraphs(n_clients, data, dataset)
 
 def split_subgraphs(n_clients, data, dataset):
-    # 将graph分成n_clients个子图，每个子图有自己的train/val/test集合，并保存
     G = torch_geometric.utils.to_networkx(data)  # to nx graph
-    # membership: 每个节点所在的client id
     n_cuts, membership = metis.part_graph(G, n_clients)  # partiton graph to n_clients subgraph, with minimal number of cross-partition edges
     assert len(list(set(membership))) == n_clients 
     print(f'graph partition done, metis, n_partitions: {len(list(set(membership)))}, n_lost_edges: {n_cuts}')
         
     adj = to_dense_adj(data.edge_index)[0]
     for client_id in range(n_clients):
-        # 当前client中的节点 idx 和 节点个数
         client_indices = np.where(np.array(membership) == client_id)[0]   # 
         client_indices = list(client_indices)
         client_num_nodes = len(client_indices)
@@ -47,7 +44,7 @@ def split_subgraphs(n_clients, data, dataset):
         client_edge_index = torch.tensor(client_edge_index, dtype=torch.long)
         client_x = data.x[client_indices]
         client_y = data.y[client_indices]
-        client_train_mask = data.train_mask[client_indices]  # 当前client中的训练集节点
+        client_train_mask = data.train_mask[client_indices]  
         client_val_mask = data.val_mask[client_indices]
         client_test_mask = data.test_mask[client_indices]
 
@@ -67,5 +64,5 @@ def split_subgraphs(n_clients, data, dataset):
         })
         print(f'client_id: {client_id}, iid, n_train_node: {client_num_nodes}, n_train_edge: {client_num_edges}')
 
-for n_clients in clients:  # clients = [5, 10, 20] 不同clients数量重新划分数据集 并且保存在不同的folder中
+for n_clients in clients:  
     generate_data(dataset='ogbn-arxiv', n_clients=n_clients)
