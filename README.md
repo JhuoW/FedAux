@@ -1,4 +1,4 @@
-# Personalized Subgraph Federated Learning via Differentiable Auxiliary Projections
+# [NeurIPS 2025] Personalized Subgraph Federated Learning via Differentiable Auxiliary Projections
 
 ## Requirement
 

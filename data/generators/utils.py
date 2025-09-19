@@ -31,7 +31,7 @@ def get_data(dataset, data_path):
     return data
 
 def split_train(data, dataset, data_path, ratio_train, mode, n_clients):
-    n_data = data.num_nodes  # cora的最大连通子图有2485个节点
+    n_data = data.num_nodes  
     ratio_test = (1-ratio_train)/2  # ratio_train = 0.2  val/test = 0.4
     n_train = round(n_data * ratio_train)
     n_test = round(n_data * ratio_test)

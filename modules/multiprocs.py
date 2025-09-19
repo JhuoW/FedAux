@@ -104,12 +104,10 @@ class WorkerProcess:
             mesg = self.q.get()
             if not mesg == None:
                 client_id, curr_rnd = mesg 
-                ##################################
                 self.client.switch_state(client_id)
                 self.client.on_receive_message(curr_rnd)
                 self.client.on_round_begin()
                 self.client.save_state()
-                ##################################
             time.sleep(1.0)
 
         print('[main] Terminating worker processes ... ')

@@ -20,7 +20,7 @@ np.random.seed(seed)
 torch.manual_seed(seed)
 
 def generate_data(dataset, n_clients): 
-    data = split_train(get_data(dataset, data_path), dataset, data_path, ratio_train, 'disjoint', n_clients)  # 划分数据集 并指定该数据集的clients数量
+    data = split_train(get_data(dataset, data_path), dataset, data_path, ratio_train, 'disjoint', n_clients)  
     split_subgraphs(n_clients, data, dataset)
 
 def split_subgraphs(n_clients, data, dataset):
