@@ -24,3 +24,20 @@ Run ``analysis10.ipynb``
 ## Acknowledgement
 
 This project draws in part from [FED-PUB](https://github.com/JinheonBaek/FED-PUB). Thanks for their great work and code!
+
+## Citation
+
+If you find our work useful, please cite:
+
+```
+@inproceedings{
+anonymous2025personalized,
+title={Personalized Subgraph Federated Learning with Differentiable Auxiliary Projections},
+author={Anonymous},
+booktitle={The Thirty-ninth Annual Conference on Neural Information Processing Systems},
+year={2025},
+url={https://openreview.net/forum?id=yrNw1R8o2W}
+}
+```
+
+Feel free to contact jhuow@proton.me if you have any questions.
