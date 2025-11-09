@@ -30,11 +30,13 @@ This project draws in part from [FED-PUB](https://github.com/JinheonBaek/FED-PUB
 If you find our work useful, please cite:
 
 ```
-@article{zhuo2025personalized,
-  title={Personalized Subgraph Federated Learning with Differentiable Auxiliary Projections},
-  author={Zhuo, Wei and Zhan, Zhaohuan and Yu, Han},
-  journal={arXiv preprint arXiv:2505.23864},
-  year={2025}
+@inproceedings{
+zhuo2025personalized,
+title={Personalized Subgraph Federated Learning with Differentiable Auxiliary Projections},
+author={Wei Zhuo and Zhaohuan Zhan and Han Yu},
+booktitle={The Thirty-ninth Annual Conference on Neural Information Processing Systems},
+year={2025},
+url={https://openreview.net/forum?id=yrNw1R8o2W}
 }
 ```
 
